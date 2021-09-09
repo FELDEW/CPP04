@@ -1,4 +1,4 @@
-NAME		=	animals
+NAME		=	materials
 
 SRCS		=	./main.cpp \
 				./AMateria.cpp \
@@ -22,7 +22,7 @@ all :		$(NAME)
 
 $(NAME) :	$(OBJS)
 			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS) -I.
-			@echo "animals"
+			@echo "materials"
 
 clean :		
 			$(RM) $(OBJS)
