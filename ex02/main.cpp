@@ -3,6 +3,7 @@
 
 int main() 
 {
+//	Animal animal;
 	Cat k;
 	std::cout << "----------------------" << std::endl;
 	{
