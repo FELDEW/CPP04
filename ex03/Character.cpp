@@ -61,7 +61,7 @@ void Character::use(int idx, ICharacter& target)
 	}
 }
 
-Character const & Character::operator=(Character const & origin)
+Character& Character::operator=(const Character& origin)
 {
 	if (this == &origin)
 		return (*this);

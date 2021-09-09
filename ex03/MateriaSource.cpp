@@ -6,7 +6,7 @@ MateriaSource::MateriaSource()
 		this->source[i] = NULL;
 }
 
-MateriaSource::MateriaSource(MateriaSource const & origin)
+MateriaSource::MateriaSource(const MateriaSource& origin)
 {
 	for(int i = 0; i < 4; i++)
 		this->source[i] = NULL;
@@ -43,7 +43,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	}
 }
 
-MateriaSource const & MateriaSource::operator=(MateriaSource const & origin)
+MateriaSource& MateriaSource::operator=(const MateriaSource& origin)
 {
 	if (this == &origin)
 		return (*this);

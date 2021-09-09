@@ -2,8 +2,6 @@
 #include "Cure.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
 
 int main()
 {
