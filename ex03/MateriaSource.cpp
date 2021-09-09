@@ -41,6 +41,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		if (this->source[i]->getType() == type)
 			return this->source[i]->clone();
 	}
+	return (NULL);
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& origin)
