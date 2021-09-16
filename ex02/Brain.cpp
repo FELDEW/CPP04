@@ -25,7 +25,7 @@ Brain& Brain::operator=(const Brain& origin)
 {
 	if (this == &origin)
 		return (*this);
-	for (int i = 0; i < this->ideas->size(); i++)
+	for (size_t i = 0; i < this->ideas->size(); i++)
 		this->ideas[i] = origin.ideas[i];
 	return (*this);
 }

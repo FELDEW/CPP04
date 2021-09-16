@@ -1,35 +1,31 @@
-NAME		=	materials
+NAME = a.out
 
-SRCS		=	./main.cpp \
-				./AMateria.cpp \
-				./Character.cpp \
-				./Cure.cpp \
-				./Ice.cpp \
-				./MateriaSource.cpp
-	
-OBJS		=	$(SRCS:.cpp=.o)
+SRCS = ./main.cpp ./AMateria.cpp ./Character.cpp ./Cure.cpp ./Ice.cpp ./MateriaSource.cpp
 
-CPP			=	clang++
+HEADER = ./AMateria.hpp ./Character.hpp ./Cure.hpp ./Ice.hpp ./MateriaSource.hpp
 
-%.o:		%.cpp 
-			$(CPP)   -c $< -o $(<:.cpp=.o)
+OBJS = $(SRCS:cpp=o)
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+%.o:        %.cpp $(HEADER)
+			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
 
-RM			=	rm -f
+CLANG =     clang++
 
-all :		$(NAME)
+CPPFLAGS =  -Wall -Wextra -Werror -std=c++98
 
-$(NAME) :	$(OBJS)
-			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS) -I.
-			@echo "materials"
+RM =        rm -f
 
-clean :		
+all :       ${NAME}
+
+$(NAME) :   $(OBJS) 
+			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I.
+
+clean :     
 			$(RM) $(OBJS)
 
-fclean 	:	clean
-			$(RM) $(NAME)
+fclean  :   clean
+			$(RM) ${NAME}
 
-re :		fclean all
+re :        fclean all
 
-.PHONY :	all clean fclean re
+.PHONY :    all clean fclean re

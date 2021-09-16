@@ -1,35 +1,31 @@
-NAME		=	animals
+NAME = a.out
 
-SRCS		=	./main.cpp \
-				./Animal.cpp \
-				./Dog.cpp \
-				./Cat.cpp \
-				./WrongAnimal.cpp \
-				./WrongCat.cpp
-	
-OBJS		=	$(SRCS:.cpp=.o)
+SRCS = ./main.cpp ./Animal.cpp ./Cat.cpp ./Dog.cpp ./WrongAnimal.cpp ./WrongCat.cpp
 
-CPP			=	clang++
+HEADER =    ./Animal.hpp ./Cat.hpp ./Dog.hpp ./WrongAnimal.hpp ./WrongCat.hpp
 
-%.o:		%.cpp 
-			$(CPP)   -c $< -o $(<:.cpp=.o)
+OBJS = $(SRCS:cpp=o)
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+%.o:        %.cpp $(HEADER)
+			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
 
-RM			=	rm -f
+CLANG =     clang++
 
-all :		$(NAME)
+CPPFLAGS =  -Wall -Wextra -Werror -std=c++98
 
-$(NAME) :	$(OBJS)
-			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS) -I.
-			@echo "animals"
+RM =        rm -f
 
-clean :		
+all :       ${NAME}
+
+$(NAME) :   $(OBJS) 
+			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I.
+
+clean :     
 			$(RM) $(OBJS)
 
-fclean 	:	clean
-			$(RM) $(NAME)
+fclean  :   clean
+			$(RM) ${NAME}
 
-re :		fclean all
+re :        fclean all
 
-.PHONY :	all clean fclean re
+.PHONY :    all clean fclean re
